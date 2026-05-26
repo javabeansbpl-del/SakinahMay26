@@ -1,0 +1,221 @@
+.masajid-page {
+  min-height: 100vh;
+  padding: 5.5rem 1.25rem 6rem;
+  background:
+    linear-gradient(180deg, rgba(26, 21, 16, 0.92), rgba(26, 21, 16, 0.95)),
+    url('/images/imagecollection/landingpage_bg2.jpg') center/cover fixed;
+  color: var(--text-primary);
+}
+
+.masajid-hero {
+  max-width: 850px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-el-messiri);
+  color: var(--text-accent);
+  background: rgba(50, 156, 91, 0.14);
+  border: 1px solid rgba(143, 212, 184, 0.35);
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-title {
+  font-family: var(--font-aref);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  color: var(--text-gold);
+  text-shadow: var(--glow-gold-subtle);
+  margin-bottom: 0.85rem;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.masajid-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.masjid-card {
+  background: rgba(42, 38, 33, 0.86);
+  border: 1px solid var(--card-border);
+  border-radius: 22px;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  box-shadow: var(--shadow-glow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.masjid-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-hover-border);
+  box-shadow: var(--shadow-glow-hover-md);
+}
+
+.masjid-image-wrap {
+  height: 220px;
+  position: relative;
+}
+
+.masjid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.masjid-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  padding: 1.15rem;
+  background: linear-gradient(180deg, rgba(10, 9, 7, 0.2), rgba(10, 9, 7, 0.9));
+}
+
+.masjid-image-overlay h2 {
+  font-family: var(--font-el-messiri);
+  font-size: 1.45rem;
+  color: var(--primary-800);
+}
+
+.masjid-image-overlay p {
+  font-size: 0.9rem;
+  color: var(--neutral-200);
+}
+
+.masjid-content {
+  padding: 1.3rem;
+}
+
+.address-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.address {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.address svg {
+  color: var(--text-gold);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.map-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-primary);
+  color: var(--text-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(230, 187, 81, 0.08);
+  transition: all 0.25s ease;
+}
+
+.map-link:hover {
+  background: rgba(230, 187, 81, 0.2);
+  box-shadow: var(--glow-gold-subtle);
+  transform: scale(1.06);
+}
+
+.timings {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.timings h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-el-messiri);
+  color: var(--text-accent);
+  margin-bottom: 0.8rem;
+}
+
+.timings ul {
+  list-style: none;
+}
+
+.timings li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.62rem 0;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.timings li:last-child {
+  border-bottom: none;
+}
+
+.salah-name {
+  font-weight: 600;
+}
+
+.salah-time {
+  color: var(--accent-green-600);
+  font-family: var(--font-el-messiri);
+}
+
+.timings li.is-jumah {
+  background: linear-gradient(90deg, rgba(230, 187, 81, 0.13), transparent);
+  padding-left: 0.5rem;
+  border-radius: 8px;
+}
+
+.timings li.is-jumah .salah-name,
+.timings li.is-jumah .salah-time {
+  color: var(--primary-700);
+}
+
+@media (max-width: 768px) {
+  .masajid-page {
+    padding-top: 4.5rem;
+    background-attachment: scroll;
+  }
+
+  .masjid-image-wrap {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .masajid-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .masjid-content {
+    padding: 1.1rem;
+  }
+
+  .address {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,339 @@
+ /* https://www.bing.com/images/search?view=detailV2&ccid=WovPd9DQ&id=EB4E45215B9D6DF455ACA266FDF6C7BE3619DE36&thid=OIP.WovPd9DQe1I-YyWh3Tq_XQHaE8&mediaurl=https%3A%2F%2Fwww.creativefabrica.com%2Fwp-content%2Fuploads%2F2022%2F03%2F28%2FBlue-and-Gold-Islamic-Background-Graphics-27984386-1.jpg&exph=2000&expw=3000&q=Islamic+Banner&form=IRPRST&ck=88DCE734C7965A911C1C574F0E2C1E7F&selectedindex=0&itb=0&cw=1250&ch=601&ajaxhist=0&ajaxserp=0&vt=2&sim=11&iss=VSI&cit=ccid_WovPd9DQ*cp_88DCE734C7965A911C1C574F0E2C1E7F*mid_EB4E45215B9D6DF455ACA266FDF6C7BE3619DE36*thid_OIP.WovPd9DQe1I-YyWh3Tq!_XQHaE8 */
+ @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;500;600;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Cairo:wght@200;300;400;500;600;700;800;900&family=Almarai:wght@300;400;700;800&display=swap');
+
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+ }
+
+ /* Dark Theme - Gold & Ivory Reimagined */
+ :root {
+   /* Brand Gold & Ivory (Adjusted for Dark) */
+   --color-primary-base: #e6bb51;
+   /* Brighter gold for dark backgrounds */
+   --color-secondary-base: #010101;
+   /* Deep dark brown, main background */
+
+   /* Gold Spectrum (Reordered for Dark Theme) */
+   --primary-50: #2d2104;
+   --primary-100: #463207;
+   --primary-200: #7d570e;
+   --primary-300: #b87d19;
+   --primary-400: #db9e30;
+   --primary-500: #e6bb51;
+   --primary-600: #edd187;
+   --primary-700: #f3e4bb;
+   --primary-800: #f8edd6;
+   --primary-900: #fdf8ee;
+
+   /* Accent Green (Enhanced for Dark) */
+   --accent-green-100: #1a2d24;
+   --accent-green-300: #329c5b;
+   --accent-green-500: #72c6a6;
+   --accent-green-600: #8fd4b8;
+   --accent-green-700: #e8faef;
+
+   /* Supporting Neutrals (Dark Version) */
+   --neutral-black: #0a0907;
+   --neutral-900: #151413;
+   --neutral-800: #1f1d1a;
+   --neutral-700: #2a2621;
+   --neutral-600: #3d3930;
+   --neutral-500: #57534e;
+   --neutral-400: #87847a;
+   --neutral-300: #b6b3a7;
+   --neutral-200: #e0dfdb;
+   --neutral-100: #f3f3f2;
+   --neutral-50: #faf9f7;
+   --neutral-white: #ffffff;
+
+   /* Special Status Colors (Dark Optimized) */
+   --success-500: #3dd98d;
+   --success-bg: #1a3d2b;
+   --warning-500: #ffb52a;
+   --warning-bg: #3d2e0f;
+   --error-500: #ff6b6b;
+   --error-bg: #3d1a1a;
+   --info-500: #4db8ff;
+   --info-bg: #1a2d3d;
+
+   /* Text Colors (Light for Dark Backgrounds) */
+   --text-primary: #f8edd6;
+   /* Light cream */
+   --text-secondary: #e0dfdb;
+   /* Soft gray-beige */
+   --text-tertiary: #b6b3a7;
+   /* Muted neutral */
+   --text-accent: #8fd4b8;
+   /* Soft mint green */
+   --text-gold: #e6bb51;
+   /* Bright gold accent */
+   --text-on-primary: #1a1510;
+   /* Dark text for gold buttons */
+   --text-on-accent: #1a1510;
+   /* Dark text for green buttons */
+
+   /* Backgrounds */
+   --bg-primary: #1a1510;
+   /* Deep dark brown */
+   --bg-secondary: #151413;
+   /* Almost black */
+   --bg-tertiary: #2a2621;
+   /* Elevated surface */
+   --bg-elevated: #3d3930;
+   /* Cards/modals */
+   --bg-overlay: rgba(10, 9, 7, 0.85);
+   /* Semi-transparent overlay */
+
+   /* Borders (Attractive Accents) */
+   --border-primary: #7d570e;
+   /* Medium gold border */
+   --border-secondary: #3d3930;
+   /* Subtle dark border */
+   --border-accent: #e6bb51;
+   /* Bright gold accent border */
+   --border-green: #329c5b;
+   /* Green accent border */
+   --border-subtle: rgba(230, 187, 81, 0.15);
+   /* Subtle gold glow */
+   --border-glow: rgba(230, 187, 81, 0.3);
+   /* Stronger gold glow */
+
+   /* Buttons */
+   --btn-primary-bg: #e6bb51;
+   --btn-primary-hover: #edd187;
+   --btn-primary-text: #1a1510;
+   --btn-primary-border: #f3e4bb;
+
+   --btn-secondary-bg: transparent;
+   --btn-secondary-hover: rgba(230, 187, 81, 0.1);
+   --btn-secondary-text: #e6bb51;
+   --btn-secondary-border: #7d570e;
+
+   --btn-accent-bg: #329c5b;
+   --btn-accent-hover: #72c6a6;
+   --btn-accent-text: #1a1510;
+   --btn-accent-border: #8fd4b8;
+
+   /* Shadows & Glows - Enhanced for Dark Theme */
+
+   /* Basic Shadows (Depth without glow) */
+   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7);
+   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.8);
+
+   /* Glow Effects (Standalone) */
+   --glow-gold-subtle: 0 0 15px rgba(230, 187, 81, 0.2);
+   --glow-gold: 0 0 25px rgba(230, 187, 81, 0.4);
+   --glow-gold-strong: 0 0 35px rgba(230, 187, 81, 0.6);
+
+   --glow-green-subtle: 0 0 15px rgba(114, 198, 166, 0.2);
+   --glow-green: 0 0 25px rgba(114, 198, 166, 0.4);
+   --glow-green-strong: 0 0 35px rgba(114, 198, 166, 0.6);
+
+   /* Combined Shadow + Glow (The Magic!) */
+   /* Standard Card - Subtle glow */
+   --shadow-glow-sm:
+     0 2px 4px rgba(0, 0, 0, 0.5),
+     0 0 15px rgba(230, 187, 81, 0.15);
+
+   /* Featured Card - Medium glow */
+   --shadow-glow-md:
+     0 4px 12px rgba(0, 0, 0, 0.6),
+     0 0 25px rgba(230, 187, 81, 0.25);
+
+   /* Premium Card - Strong glow */
+   --shadow-glow-lg:
+     0 8px 20px rgba(0, 0, 0, 0.7),
+     0 0 35px rgba(230, 187, 81, 0.35);
+
+   /* Hero/Featured Section - Intense glow */
+   --shadow-glow-xl:
+     0 15px 35px rgba(0, 0, 0, 0.8),
+     0 0 50px rgba(230, 187, 81, 0.4);
+
+   /* Hover States (Elevated + Stronger glow) */
+   --shadow-glow-hover-sm:
+     0 4px 8px rgba(0, 0, 0, 0.6),
+     0 0 20px rgba(230, 187, 81, 0.3);
+
+   --shadow-glow-hover-md:
+     0 8px 16px rgba(0, 0, 0, 0.7),
+     0 0 30px rgba(230, 187, 81, 0.4);
+
+   --shadow-glow-hover-lg:
+     0 12px 25px rgba(0, 0, 0, 0.75),
+     0 0 40px rgba(230, 187, 81, 0.5);
+
+   --shadow-glow-hover-xl:
+     0 20px 45px rgba(0, 0, 0, 0.85),
+     0 0 60px rgba(230, 187, 81, 0.6);
+
+   /* Green Accent Glows (for wellness/spiritual cards) */
+   --shadow-glow-green-md:
+     0 4px 12px rgba(0, 0, 0, 0.6),
+     0 0 25px rgba(114, 198, 166, 0.3);
+
+   --shadow-glow-green-hover:
+     0 8px 16px rgba(0, 0, 0, 0.7),
+     0 0 35px rgba(114, 198, 166, 0.45);
+
+   /* Special: Multi-color glow (Gold + Green) */
+   --shadow-glow-dual:
+     0 6px 15px rgba(0, 0, 0, 0.65),
+     0 0 25px rgba(230, 187, 81, 0.2),
+     0 0 35px rgba(114, 198, 166, 0.15);
+
+   /* Focus State (for inputs, buttons) */
+   --shadow-focus-gold:
+     0 0 0 3px rgba(230, 187, 81, 0.2),
+     0 0 20px rgba(230, 187, 81, 0.4);
+
+   --shadow-focus-green:
+     0 0 0 3px rgba(114, 198, 166, 0.2),
+     0 0 20px rgba(114, 198, 166, 0.4);
+
+   /* Inner Glow (for special elements) */
+   --glow-inset: inset 0 0 20px rgba(230, 187, 81, 0.1);
+   --glow-inset-strong: inset 0 0 30px rgba(230, 187, 81, 0.2);
+
+   /* Navigation Specific */
+   --nav-bg: rgba(26, 21, 16, 0.95);
+   --nav-link: #e0dfdb;
+   --nav-link-hover: #e6bb51;
+   --nav-link-active: #f8edd6;
+   --nav-border: rgba(125, 87, 14, 0.3);
+
+   --dropdown-bg: #2a2621;
+   --dropdown-border: #7d570e;
+   --dropdown-item-hover-bg: rgba(230, 187, 81, 0.1);
+   --dropdown-item-hover-text: #e6bb51;
+
+   /* Input Fields */
+   --input-bg: #2a2621;
+   --input-border: #3d3930;
+   --input-border-focus: #e6bb51;
+   --input-text: #f8edd6;
+   --input-placeholder: #87847a;
+
+   /* Cards & Surfaces */
+   --card-bg: #2a2621;
+   --card-border: rgba(125, 87, 14, 0.2);
+   --card-hover-border: #7d570e;
+   --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+   --card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.7),
+     0 0 30px rgba(230, 187, 81, 0.15),
+     0 5px 15px rgba(125, 87, 14, 0.3);
+   --card-hover-bg: #332d26;
+   --card-before-bg: linear-gradient(135deg, rgba(230, 187, 81, 0.05) 0%, rgba(125, 87, 14, 0.08) 100%);
+ }
+
+ /* Optional: Gradient Backgrounds for Special Sections */
+ :root {
+   --gradient-primary: linear-gradient(135deg, #1a1510 0%, #2a2621 100%);
+   --gradient-gold: linear-gradient(135deg, #7d570e 0%, #e6bb51 100%);
+   --gradient-accent: linear-gradient(135deg, #329c5b 0%, #72c6a6 100%);
+   --gradient-overlay: linear-gradient(180deg, rgba(26, 21, 16, 0) 0%, rgba(26, 21, 16, 0.9) 100%);
+ }
+
+
+ /* footer */
+ /* Footer Theme */
+ :root {
+   /* Footer Backgrounds */
+   --footer-bg-primary: #151413;
+   /* Darker than main content, creates visual grounding */
+   --footer-bg-secondary: #0a0907;
+   /* Even darker sections within footer */
+   --footer-bg-elevated: #1f1d1a;
+   /* For cards/highlighted areas in footer */
+
+   /* Footer Text Colors */
+   --footer-text-primary: #e0dfdb;
+   /* Main footer text */
+   --footer-text-secondary: #87847a;
+   /* Muted text for secondary info */
+   --footer-text-tertiary: #57534e;
+   /* Very subtle text (e.g., copyright) */
+   --footer-heading: #f8edd6;
+   /* Footer section headings */
+   --footer-link: #b6b3a7;
+   /* Default link color */
+   --footer-link-hover: #e6bb51;
+   /* Gold hover for links */
+   --footer-link-active: #edd187;
+   /* Active/clicked link state */
+
+   /* Footer Borders & Dividers */
+   --footer-border-top: linear-gradient(90deg,
+       transparent 0%,
+       rgba(125, 87, 14, 0.3) 20%,
+       rgba(230, 187, 81, 0.5) 50%,
+       rgba(125, 87, 14, 0.3) 80%,
+       transparent 100%);
+   /* Elegant top border gradient */
+   --footer-border-subtle: rgba(125, 87, 14, 0.15);
+   /* Subtle dividers */
+   --footer-border-accent: rgba(230, 187, 81, 0.25);
+   /* More visible dividers */
+
+   /* Footer Icons & Accents */
+   --footer-icon-default: #87847a;
+   /* Default icon color */
+   --footer-icon-hover: #e6bb51;
+   /* Icon hover color */
+   --footer-social-bg: rgba(230, 187, 81, 0.05);
+   /* Social icon background */
+   --footer-social-hover-bg: rgba(230, 187, 81, 0.15);
+   /* Social icon hover background */
+   --footer-social-border: rgba(125, 87, 14, 0.3);
+   /* Social icon border */
+
+   /* Footer Input/Newsletter */
+   --footer-input-bg: #1f1d1a;
+   /* Darker input background */
+   --footer-input-border: #3d3930;
+   --footer-input-focus-border: #7d570e;
+   --footer-input-text: #f8edd6;
+   --footer-input-placeholder: #57534e;
+
+   /* Footer Button (Newsletter Subscribe) */
+   --footer-btn-bg: #7d570e;
+   /* Darker gold than primary button */
+   --footer-btn-hover-bg: #e6bb51;
+   --footer-btn-text: #f8edd6;
+   --footer-btn-border: rgba(230, 187, 81, 0.3);
+
+   /* Footer Shadows & Glows */
+   --footer-shadow-subtle: 0 -4px 12px rgba(0, 0, 0, 0.5);
+   /* Subtle upward shadow */
+   --footer-glow-accent: 0 0 20px rgba(230, 187, 81, 0.1);
+   /* Subtle golden glow for special elements */
+   --footer-divider-glow: 0 1px 3px rgba(230, 187, 81, 0.2);
+   /* Glow for divider lines */
+
+   /* Footer Gradient Overlays */
+   --footer-gradient-overlay: linear-gradient(180deg,
+       rgba(26, 21, 16, 0.5) 0%,
+       rgba(21, 20, 19, 1) 100%);
+   /* For layered footer backgrounds */
+   --footer-gradient-subtle: linear-gradient(135deg,
+       #151413 0%,
+       #1a1510 50%,
+       #151413 100%);
+   /* Subtle gradient for footer sections */
+ }
+
+ /*------------------------------------------------ Root variables for fonts---------------------------------------------------------- */
+ :root {
+   /* Brand / Logo / Decorative headings (use sparingly) */
+   --font-aref: "Aref Ruqaa", serif;
+
+   /* Section titles, menus, clean headings */
+   --font-el-messiri: "El Messiri", sans-serif;
+
+   /* Body text, cards, buttons, CTAs */
+   --font-kufam: "Kufam", sans-serif;
+ }

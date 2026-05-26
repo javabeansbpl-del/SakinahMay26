@@ -1,0 +1,671 @@
+/* =====================================================
+   IDDAT CALCULATOR — Full Design
+   Dark · Indigo-Gold · Contemplative / Sacred aesthetic
+   ===================================================== */
+
+/* ── HERO ─────────────────────────────────────────── */
+.id-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  min-height: 54vh;
+  background: var(--bg-secondary);
+  z-index: 1;
+}
+
+.id-hero__bg { position: absolute; inset: 0; pointer-events: none; }
+
+.id-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, rgba(20, 16, 30, 0.7) 0%, rgba(10, 9, 7, 0.97) 100%);
+}
+
+.id-hero__dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(230, 187, 81, 0.1) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black, transparent);
+}
+
+.id-hero__ring {
+  position: absolute; border-radius: 50%;
+  top: 50%; left: 50%;
+}
+.id-hero__ring--a {
+  width: 44rem; height: 44rem;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(230,187,81,0.06);
+  animation: id-spin 90s linear infinite;
+}
+.id-hero__ring--b {
+  width: 30rem; height: 30rem;
+  transform: translate(-50%,-50%);
+  border: 1px dashed rgba(230,187,81,0.09);
+  animation: id-spin 60s linear infinite reverse;
+}
+.id-hero__ring--c {
+  width: 16rem; height: 16rem;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(230,187,81,0.13);
+  animation: id-spin 35s linear infinite;
+}
+
+@keyframes id-spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+.id-hero__body {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 5.5rem 1.5rem 3rem;
+  max-width: 52rem;
+}
+
+.id-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Cairo', sans-serif; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-gold);
+  background: rgba(230,187,81,0.08); border: 1px solid rgba(230,187,81,0.22);
+  padding: 0.3rem 1rem; border-radius: 2rem;
+  margin-bottom: 1.75rem;
+  animation: id-fade-up 0.6s ease both;
+}
+
+.id-hero__eyebrow-dot {
+  width: 0.45rem; height: 0.45rem;
+  background: var(--text-gold); border-radius: 50%;
+  animation: id-pulse 2s ease-in-out infinite;
+}
+
+@keyframes id-pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(1.5); }
+}
+
+.id-hero__title {
+  font-family: 'Amiri', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--text-primary); margin-bottom: 1.25rem;
+  animation: id-fade-up 0.6s ease 0.1s both;
+}
+
+.id-hero__title-ar {
+  display: block;
+  font-family: 'Scheherazade New', serif; font-size: 1.5rem;
+  color: var(--text-gold); opacity: 0.65; margin-bottom: 0.3rem;
+}
+
+.id-hero__sub {
+  font-family: 'Tajawal', sans-serif; font-size: 1.08rem;
+  line-height: 1.8; color: var(--text-tertiary); margin-bottom: 2rem;
+  animation: id-fade-up 0.6s ease 0.2s both;
+}
+
+.id-hero__verse {
+  display: inline-flex; flex-direction: column; gap: 0.4rem;
+  background: rgba(230,187,81,0.05); border: 1px solid rgba(230,187,81,0.15);
+  border-radius: 0.75rem; padding: 1rem 1.75rem;
+  animation: id-fade-up 0.6s ease 0.25s both;
+}
+
+.id-hero__verse-ar {
+  font-family: 'Scheherazade New', serif; font-size: 1.3rem;
+  color: var(--text-gold); line-height: 1.7;
+}
+
+.id-hero__verse-ref {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-tertiary); font-style: italic;
+}
+
+.id-hero__stats {
+  position: relative; z-index: 2; width: 100%;
+  display: flex; justify-content: center; align-items: center; gap: 3rem;
+  background: rgba(255,255,255,0.025);
+  border-top: 1px solid rgba(230,187,81,0.12);
+  padding: 1.1rem 1.5rem;
+  animation: id-fade-up 0.6s ease 0.35s both;
+}
+
+.id-hero__stat {
+  display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
+}
+.id-hero__stat strong {
+  font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 800;
+  color: var(--text-gold);
+}
+.id-hero__stat span {
+  font-family: 'Tajawal', sans-serif; font-size: 0.68rem;
+  color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+@keyframes id-fade-up {
+  from { opacity:0; transform:translateY(1.2rem); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── MAIN ────────────────────────────────────────── */
+.id-main {
+  background: var(--bg-primary);
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.id-layout {
+  max-width: 82rem; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem; align-items: start;
+}
+
+/* ── PANELS ──────────────────────────────────────── */
+.id-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.id-panel--calendar { padding: 1.5rem; }
+
+.id-panel__title {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-tertiary); margin-bottom: 1.25rem;
+}
+
+.id-panel__icon {
+  width: 1rem; height: 1rem; color: var(--text-gold); flex-shrink: 0;
+}
+
+/* ── TYPE CARDS ──────────────────────────────────── */
+.id-types { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1rem; }
+
+.id-type-card {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  background: var(--bg-secondary); border: 1px solid var(--border-secondary);
+  border-radius: 0.875rem; cursor: pointer;
+  text-align: left; transition: all 0.25s ease;
+  width: 100%;
+}
+
+.id-type-card:hover {
+  border-color: rgba(230,187,81,0.3);
+  background: rgba(230,187,81,0.03);
+}
+
+.id-type-card--active.id-type-card--gold {
+  border-color: rgba(230,187,81,0.5);
+  background: rgba(230,187,81,0.07);
+  box-shadow: 0 0 0 1px rgba(230,187,81,0.15);
+}
+
+.id-type-card--active.id-type-card--green {
+  border-color: rgba(114,198,166,0.5);
+  background: rgba(114,198,166,0.07);
+  box-shadow: 0 0 0 1px rgba(114,198,166,0.15);
+}
+
+.id-type-card__icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.id-type-card__body {
+  display: flex; flex-direction: column; gap: 0.1rem; flex: 1; min-width: 0;
+}
+
+.id-type-card__ar {
+  font-family: 'Scheherazade New', serif; font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+.id-type-card__label {
+  font-family: 'Cairo', sans-serif; font-size: 0.92rem; font-weight: 700;
+  color: var(--text-primary);
+}
+
+.id-type-card__rule {
+  font-family: 'Tajawal', sans-serif; font-size: 0.75rem;
+  color: var(--text-gold);
+}
+
+.id-type-card--active.id-type-card--green .id-type-card__rule {
+  color: var(--accent-green-500);
+}
+
+.id-type-card__check {
+  font-size: 0.85rem; color: var(--text-gold); font-weight: 700; flex-shrink: 0;
+}
+
+.id-type-note {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-tertiary); font-style: italic; line-height: 1.6;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.02);
+  border-left: 2px solid rgba(230,187,81,0.3);
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+/* ── DATE FIELD ──────────────────────────────────── */
+.id-date-field { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.id-date-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary);
+}
+
+.id-date-input {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 600;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg); border: 1px solid var(--input-border);
+  border-radius: 0.625rem; color: var(--input-text);
+  width: 100%; transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.id-date-input:focus {
+  outline: none;
+  border-color: var(--text-gold);
+  box-shadow: 0 0 0 3px rgba(230,187,81,0.1);
+}
+
+/* Webkit date input styling */
+.id-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+.id-date-hijri {
+  font-family: 'Scheherazade New', serif; font-size: 0.9rem;
+  color: var(--text-gold); opacity: 0.6;
+}
+
+/* ── SCHOLAR NOTE ────────────────────────────────── */
+.id-scholar-note {
+  display: flex; gap: 0.875rem; align-items: flex-start;
+  background: rgba(77,184,255,0.05); border: 1px solid rgba(77,184,255,0.15);
+  border-radius: 1rem; padding: 1.1rem 1.25rem;
+}
+
+.id-scholar-note__icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+.id-scholar-note h4 {
+  font-family: 'Cairo', sans-serif; font-size: 0.88rem; font-weight: 700;
+  color: var(--info-500); margin-bottom: 0.35rem;
+}
+
+.id-scholar-note p {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-tertiary); line-height: 1.65;
+}
+
+/* ── RESULT CARD ─────────────────────────────────── */
+.id-result {
+  border-radius: 1.25rem; padding: 2rem;
+  border: 1px solid;
+  animation: id-fade-up 0.5s ease 0.1s both;
+}
+
+.id-result--active {
+  background: linear-gradient(135deg, rgba(230,187,81,0.07) 0%, rgba(125,87,14,0.1) 100%);
+  border-color: rgba(230,187,81,0.3);
+  box-shadow: 0 0 3rem rgba(230,187,81,0.1);
+}
+
+.id-result--complete {
+  background: rgba(61,217,141,0.05);
+  border-color: rgba(61,217,141,0.25);
+}
+
+.id-result--future {
+  background: rgba(77,184,255,0.04);
+  border-color: rgba(77,184,255,0.2);
+}
+
+/* Status badge */
+.id-result__status { margin-bottom: 1.25rem; }
+
+.id-result__badge {
+  font-family: 'Cairo', sans-serif; font-size: 0.75rem; font-weight: 700;
+  padding: 0.3rem 0.85rem; border-radius: 2rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.id-result__badge--active {
+  background: rgba(230,187,81,0.12); color: var(--text-gold);
+  border: 1px solid rgba(230,187,81,0.3);
+}
+
+.id-result__badge--done {
+  background: rgba(61,217,141,0.1); color: var(--success-500);
+  border: 1px solid rgba(61,217,141,0.25);
+}
+
+.id-result__badge--future {
+  background: rgba(77,184,255,0.1); color: var(--info-500);
+  border: 1px solid rgba(77,184,255,0.25);
+}
+
+/* Date row */
+.id-result__dates {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+
+.id-result__date-block {
+  display: flex; flex-direction: column; gap: 0.2rem; flex: 1; min-width: 8rem;
+}
+
+.id-result__date-block--end { align-items: flex-end; }
+
+.id-result__date-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-tertiary);
+}
+
+.id-result__date-val {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--text-primary);
+}
+
+.id-result__date-hijri {
+  font-family: 'Scheherazade New', serif; font-size: 0.8rem;
+  color: var(--text-gold); opacity: 0.65;
+}
+
+.id-result__date-arrow {
+  font-size: 1.2rem; color: var(--text-tertiary); flex-shrink: 0;
+}
+
+/* Progress */
+.id-result__progress-wrap { margin-bottom: 1.5rem; }
+
+.id-result__progress-track {
+  height: 6px; background: rgba(255,255,255,0.07);
+  border-radius: 3px; overflow: hidden; margin-bottom: 0.4rem;
+}
+
+.id-result__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-300), var(--primary-500));
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.id-result--complete .id-result__progress-fill {
+  background: linear-gradient(90deg, var(--accent-green-300), var(--success-500));
+}
+
+.id-result__progress-labels {
+  display: flex; justify-content: space-between;
+  font-family: 'Cairo', sans-serif; font-size: 0.68rem; color: var(--text-tertiary);
+}
+
+/* Countdown */
+.id-result__countdown {
+  text-align: center; margin-bottom: 1.5rem;
+}
+
+.id-result__countdown-num {
+  font-family: 'Cairo', sans-serif; font-size: 3.5rem; font-weight: 900;
+  color: var(--text-gold); line-height: 1;
+  text-shadow: 0 0 3rem rgba(230,187,81,0.3);
+  letter-spacing: -0.02em;
+}
+
+.id-result__countdown-label {
+  font-family: 'Tajawal', sans-serif; font-size: 0.88rem;
+  color: var(--text-tertiary); margin-top: 0.25rem;
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+
+/* Complete message */
+.id-result__complete-msg {
+  text-align: center; margin-bottom: 1.5rem;
+}
+
+.id-result__complete-msg span {
+  font-family: 'Scheherazade New', serif; font-size: 2rem;
+  color: var(--success-500); display: block; margin-bottom: 0.4rem;
+}
+
+.id-result__complete-msg p {
+  font-family: 'Tajawal', sans-serif; font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Segments */
+.id-result__segments {
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
+  border-top: 1px solid rgba(230,187,81,0.1);
+  padding-top: 1.25rem;
+}
+
+.id-result__seg {
+  flex: 1; min-width: 5rem;
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,0.03); border-radius: 0.625rem;
+  padding: 0.75rem 0.5rem;
+}
+
+.id-result__seg-val {
+  font-family: 'Cairo', sans-serif; font-size: 1.3rem; font-weight: 800;
+  color: var(--text-gold);
+}
+
+.id-result__seg-label {
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem;
+  color: var(--text-tertiary); text-align: center; margin-top: 0.15rem;
+}
+
+/* ═══════════════════════════════════════
+   IDDAT CALENDAR COMPONENT STYLES
+   ═══════════════════════════════════════ */
+
+.idc-wrap {
+  width: 100%;
+}
+
+/* Nav bar */
+.idc-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.idc-nav-btn {
+  width: 2.2rem; height: 2.2rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-tertiary); border: 1px solid var(--border-secondary);
+  border-radius: 0.5rem; cursor: pointer; color: var(--text-secondary);
+  transition: all 0.2s ease; flex-shrink: 0;
+}
+
+.idc-nav-btn svg { width: 1rem; height: 1rem; }
+
+.idc-nav-btn:hover {
+  border-color: var(--text-gold); color: var(--text-gold);
+  background: rgba(230,187,81,0.07);
+}
+
+.idc-nav-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.85rem; font-weight: 700;
+  color: var(--text-primary); text-align: center;
+}
+
+/* Two month layout */
+.idc-months {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+
+.idc-month-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-gold); margin-bottom: 0.75rem; text-align: center;
+}
+
+.idc-day-headers {
+  display: grid; grid-template-columns: repeat(7,1fr);
+  gap: 0.1rem; margin-bottom: 0.35rem;
+}
+
+.idc-day-hdr {
+  font-family: 'Cairo', sans-serif; font-size: 0.62rem; font-weight: 700;
+  text-align: center; text-transform: uppercase;
+  color: var(--text-tertiary); padding: 0.2rem 0;
+}
+
+.idc-grid {
+  display: grid; grid-template-columns: repeat(7,1fr);
+  gap: 0.15rem;
+}
+
+/* Cell base */
+.idc-cell {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cairo', sans-serif; font-size: 0.75rem; font-weight: 500;
+  border-radius: 0.4rem; border: 1px solid transparent;
+  background: none; color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.idc-cell:hover:not(.idc-cell--in-range):not(.idc-cell--start):not(.idc-cell--end) {
+  background: rgba(230,187,81,0.08);
+  color: var(--text-gold);
+}
+
+.idc-cell--empty { cursor: default; pointer-events: none; }
+
+/* Today */
+.idc-cell--today {
+  border-color: rgba(230,187,81,0.4);
+  color: var(--text-gold); font-weight: 700;
+}
+
+/* In range */
+.idc-cell--in-range {
+  background: rgba(230,187,81,0.12);
+  color: var(--text-primary);
+  border-radius: 0;
+  border-color: transparent;
+}
+
+/* Start */
+.idc-cell--start {
+  background: var(--primary-400);
+  color: var(--text-on-primary);
+  font-weight: 800;
+  border-radius: 0.4rem 0 0 0.4rem;
+  border-color: transparent;
+  box-shadow: 0 0 0.75rem rgba(230,187,81,0.35);
+}
+
+/* End */
+.idc-cell--end {
+  background: var(--accent-green-300);
+  color: var(--text-on-primary);
+  font-weight: 800;
+  border-radius: 0 0.4rem 0.4rem 0;
+  border-color: transparent;
+  box-shadow: 0 0 0.75rem rgba(50,156,91,0.35);
+}
+
+/* Legend */
+.idc-legend {
+  display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+  margin-top: 1rem; padding-top: 0.875rem;
+  border-top: 1px solid rgba(230,187,81,0.08);
+}
+
+.idc-legend-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem;
+  color: var(--text-tertiary);
+}
+
+.idc-legend-dot {
+  width: 0.7rem; height: 0.7rem; border-radius: 0.2rem; flex-shrink: 0;
+}
+
+.idc-legend-dot--start  { background: var(--primary-400); }
+.idc-legend-dot--range  { background: rgba(230,187,81,0.25); border: 1px solid rgba(230,187,81,0.4); }
+.idc-legend-dot--end    { background: var(--accent-green-300); }
+.idc-legend-dot--today  { background: transparent; border: 1px solid var(--text-gold); }
+
+/* ── INFO STRIP ──────────────────────────────────── */
+.id-info-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(230,187,81,0.1);
+  padding: 3.5rem 1.5rem;
+}
+
+.id-info-strip__inner {
+  max-width: 82rem; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
+}
+
+.id-info-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 1rem; padding: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.id-info-card:hover {
+  transform: translateY(-0.2rem);
+  border-color: rgba(230,187,81,0.3);
+}
+
+.id-info-card__icon { font-size: 1.75rem; display: block; margin-bottom: 0.75rem; }
+
+.id-info-card h4 {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--text-gold); margin-bottom: 0.5rem;
+}
+
+.id-info-card p {
+  font-family: 'Tajawal', sans-serif; font-size: 0.85rem;
+  color: var(--text-tertiary); line-height: 1.65;
+}
+
+/* ── QURAN BANNER ────────────────────────────────── */
+.id-quran-banner {
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(230,187,81,0.1);
+  border-bottom: 1px solid rgba(230,187,81,0.1);
+  padding: 2.5rem 1.5rem; text-align: center;
+  display: flex; flex-direction: column; gap: 0.6rem; align-items: center;
+}
+
+.id-quran-banner__ar {
+  font-family: 'Scheherazade New', serif; font-size: 1.5rem;
+  color: var(--text-gold); opacity: 0.7; line-height: 1.7;
+}
+
+.id-quran-banner__en {
+  font-family: 'Tajawal', sans-serif; font-size: 0.88rem;
+  font-style: italic; color: var(--text-tertiary); max-width: 52rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 72em) {
+  .id-layout { grid-template-columns: 1fr; }
+  .id-info-strip__inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 48em) {
+  .id-hero__body { padding: 4.5rem 1.25rem 2.5rem; }
+  .id-hero__stats { flex-wrap: wrap; gap: 1.25rem; padding: 1rem; }
+  .idc-months { grid-template-columns: 1fr; }
+  .id-info-strip__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 30em) {
+  .id-hero__title { font-size: 2rem; }
+  .id-result__countdown-num { font-size: 2.8rem; }
+  .id-result__dates { flex-direction: column; gap: 0.5rem; }
+  .id-result__date-block--end { align-items: flex-start; }
+  .id-result__date-arrow { transform: rotate(90deg); }
+}

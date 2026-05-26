@@ -1,0 +1,702 @@
+/* =====================================================
+   AQIQAH CALCULATOR — Full Design
+   Dark · Warm Gold & Rose · Celebratory / Birth Joy
+   ===================================================== */
+
+/* ── HERO ─────────────────────────────────────────── */
+.aq-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  min-height: 56vh;
+  background: var(--bg-secondary);
+  z-index: 1;
+}
+
+.aq-hero__bg { position: absolute; inset: 0; pointer-events: none; }
+
+.aq-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(155deg, rgba(26,16,12,0.65) 0%, rgba(10,9,7,0.97) 100%);
+}
+
+.aq-hero__stars {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(230,187,81,0.18) 1px, transparent 1px);
+  background-size: 2.2rem 2.2rem;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, black, transparent);
+}
+
+.aq-hero__ring {
+  position: absolute; border-radius: 50%; top: 50%; left: 50%;
+}
+
+.aq-hero__ring--a {
+  width: 42rem; height: 42rem;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(230,187,81,0.07);
+  animation: aq-spin 80s linear infinite;
+}
+.aq-hero__ring--b {
+  width: 27rem; height: 27rem;
+  transform: translate(-50%,-50%);
+  border: 1px dashed rgba(230,187,81,0.1);
+  animation: aq-spin 55s linear infinite reverse;
+}
+.aq-hero__ring--c {
+  width: 14rem; height: 14rem;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(230,187,81,0.14);
+  animation: aq-spin 30s linear infinite;
+}
+
+@keyframes aq-spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+/* Floating decorative crescents */
+.aq-hero__crescent {
+  position: absolute;
+  color: rgba(230,187,81,0.2);
+  font-size: 1.5rem;
+  animation: aq-float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+.aq-hero__crescent--1 { top: 15%; left: 10%; font-size: 2rem; animation-delay: 0s; }
+.aq-hero__crescent--2 { top: 30%; right: 8%; font-size: 1.2rem; animation-delay: 2s; }
+.aq-hero__crescent--3 { bottom: 25%; left: 15%; font-size: 0.9rem; animation-delay: 1s; }
+.aq-hero__crescent--4 { bottom: 20%; right: 12%; font-size: 1.4rem; animation-delay: 3s; }
+
+@keyframes aq-float {
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+  50%      { transform: translateY(-12px) rotate(10deg); opacity: 0.45; }
+}
+
+.aq-hero__body {
+  position: relative; z-index: 2;
+  text-align: center;
+  padding: 5.5rem 1.5rem 3rem;
+  max-width: 52rem;
+}
+
+.aq-hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: 'Cairo', sans-serif; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-gold);
+  background: rgba(230,187,81,0.08); border: 1px solid rgba(230,187,81,0.22);
+  padding: 0.3rem 1rem; border-radius: 2rem; margin-bottom: 1.75rem;
+  animation: aq-fade-up 0.6s ease both;
+}
+
+.aq-hero__eyebrow-dot {
+  width: 0.45rem; height: 0.45rem;
+  background: var(--text-gold); border-radius: 50%;
+  animation: aq-pulse 2s ease-in-out infinite;
+}
+
+@keyframes aq-pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:0.4; transform:scale(1.5); }
+}
+
+.aq-hero__title {
+  font-family: 'Amiri', serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700; line-height: 1.15;
+  color: var(--text-primary); margin-bottom: 1.25rem;
+  animation: aq-fade-up 0.6s ease 0.1s both;
+}
+
+.aq-hero__title-ar {
+  display: block;
+  font-family: 'Scheherazade New', serif; font-size: 1.5rem;
+  color: var(--text-gold); opacity: 0.65; margin-bottom: 0.3rem;
+}
+
+.aq-hero__sub {
+  font-family: 'Tajawal', sans-serif; font-size: 1.08rem;
+  line-height: 1.8; color: var(--text-tertiary); margin-bottom: 2rem;
+  animation: aq-fade-up 0.6s ease 0.2s both;
+}
+
+.aq-hero__verse {
+  display: inline-flex; flex-direction: column; gap: 0.4rem;
+  background: rgba(230,187,81,0.05); border: 1px solid rgba(230,187,81,0.15);
+  border-radius: 0.75rem; padding: 1rem 1.75rem;
+  animation: aq-fade-up 0.6s ease 0.25s both;
+}
+
+.aq-hero__verse-ar {
+  font-family: 'Scheherazade New', serif; font-size: 1.3rem;
+  color: var(--text-gold); line-height: 1.7;
+}
+
+.aq-hero__verse-ref {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-tertiary); font-style: italic;
+}
+
+.aq-hero__stats {
+  position: relative; z-index: 2; width: 100%;
+  display: flex; justify-content: center; align-items: center; gap: 3rem;
+  background: rgba(255,255,255,0.025);
+  border-top: 1px solid rgba(230,187,81,0.12);
+  padding: 1.1rem 1.5rem;
+  animation: aq-fade-up 0.6s ease 0.35s both;
+}
+
+.aq-hero__stat {
+  display: flex; flex-direction: column; align-items: center; gap: 0.1rem;
+}
+.aq-hero__stat strong {
+  font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 800;
+  color: var(--text-gold);
+}
+.aq-hero__stat span {
+  font-family: 'Tajawal', sans-serif; font-size: 0.68rem;
+  color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+@keyframes aq-fade-up {
+  from { opacity:0; transform:translateY(1.2rem); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── MAIN ────────────────────────────────────────── */
+.aq-main {
+  background: var(--bg-primary);
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+.aq-layout {
+  max-width: 82rem; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem; align-items: start;
+}
+
+/* ── PANELS ──────────────────────────────────────── */
+.aq-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.aq-panel__head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.aq-panel__title {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-tertiary); margin-bottom: 1.25rem;
+}
+
+.aq-panel__head .aq-panel__title { margin-bottom: 0; }
+
+.aq-panel__icon {
+  width: 1rem; height: 1rem; color: var(--text-gold); flex-shrink: 0;
+}
+
+.aq-panel__badge {
+  font-family: 'Cairo', sans-serif; font-size: 0.72rem; font-weight: 700;
+  padding: 0.2rem 0.65rem; border-radius: 2rem;
+  background: rgba(230,187,81,0.1); color: var(--text-gold);
+  border: 1px solid rgba(230,187,81,0.22);
+}
+
+/* ── FIELDS ──────────────────────────────────────── */
+.aq-field { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+.aq-field:last-child { margin-bottom: 0; }
+
+.aq-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary);
+}
+
+.aq-input {
+  font-family: 'Tajawal', sans-serif; font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg); border: 1px solid var(--input-border);
+  border-radius: 0.625rem; color: var(--input-text);
+  transition: all 0.25s ease;
+}
+.aq-input::placeholder { color: var(--input-placeholder); }
+.aq-input:focus { outline: none; border-color: var(--text-gold); box-shadow: 0 0 0 3px rgba(230,187,81,0.1); }
+
+.aq-date-input {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 600;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg); border: 1px solid var(--input-border);
+  border-radius: 0.625rem; color: var(--input-text);
+  width: 100%; transition: all 0.25s ease; cursor: pointer;
+}
+.aq-date-input:focus { outline: none; border-color: var(--text-gold); box-shadow: 0 0 0 3px rgba(230,187,81,0.1); }
+.aq-date-input::-webkit-calendar-picker-indicator { filter: invert(0.7); cursor: pointer; }
+
+.aq-date-hijri {
+  font-family: 'Scheherazade New', serif; font-size: 0.88rem;
+  color: var(--text-gold); opacity: 0.6;
+}
+
+/* ── GENDER TOGGLE ───────────────────────────────── */
+.aq-gender-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+
+.aq-gender-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+  padding: 1rem 0.75rem;
+  background: var(--bg-secondary); border: 1px solid var(--border-secondary);
+  border-radius: 0.875rem; cursor: pointer; transition: all 0.25s ease;
+  width: 100%;
+}
+.aq-gender-btn:hover { border-color: rgba(230,187,81,0.3); }
+
+.aq-gender-btn.active.active--blue {
+  border-color: rgba(77,184,255,0.5);
+  background: rgba(77,184,255,0.07);
+  box-shadow: 0 0 0 1px rgba(77,184,255,0.15);
+}
+.aq-gender-btn.active.active--pink {
+  border-color: rgba(255,143,168,0.5);
+  background: rgba(255,143,168,0.07);
+  box-shadow: 0 0 0 1px rgba(255,143,168,0.15);
+}
+
+.aq-gender-btn__icon { font-size: 1.75rem; }
+.aq-gender-btn__label {
+  font-family: 'Cairo', sans-serif; font-size: 0.92rem; font-weight: 700;
+  color: var(--text-primary);
+}
+.aq-gender-btn__ar {
+  font-family: 'Scheherazade New', serif; font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+.aq-gender-btn__rule {
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem;
+  color: var(--text-gold); margin-top: 0.1rem;
+}
+
+/* ── ANIMAL CARD ─────────────────────────────────── */
+.aq-animal-card {
+  display: flex; align-items: flex-start; gap: 1rem;
+  border-radius: 1.1rem; padding: 1.25rem;
+  border: 1px solid; margin-bottom: 1.5rem;
+  animation: aq-fade-up 0.4s ease both;
+  transition: all 0.3s ease;
+}
+
+.aq-animal-card--boy {
+  background: rgba(77,184,255,0.05);
+  border-color: rgba(77,184,255,0.2);
+}
+.aq-animal-card--girl {
+  background: rgba(255,143,168,0.05);
+  border-color: rgba(255,143,168,0.2);
+}
+
+.aq-animal-card__icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+.aq-animal-card__body { flex: 1; }
+
+.aq-animal-card__title {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 0.35rem;
+}
+
+.aq-animal-card__desc {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-tertiary); line-height: 1.65; margin-bottom: 0.65rem;
+}
+
+.aq-animal-card__goats { display: flex; gap: 0.3rem; font-size: 1.3rem; }
+
+/* ── CHECKLIST ───────────────────────────────────── */
+.aq-checklist-progress {
+  height: 4px; background: rgba(255,255,255,0.07);
+  border-radius: 2px; overflow: hidden; margin-bottom: 1rem;
+}
+.aq-checklist-progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-300), var(--accent-green-500));
+  border-radius: 2px; transition: width 0.5s ease;
+}
+
+.aq-checklist { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.aq-check-input { display: none; }
+
+.aq-check-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  background: var(--bg-secondary); border: 1px solid var(--border-secondary);
+  border-radius: 0.75rem; cursor: pointer;
+  transition: all 0.2s ease;
+}
+.aq-check-item:hover { border-color: rgba(230,187,81,0.3); }
+
+.aq-check-item--done {
+  background: rgba(61,217,141,0.05);
+  border-color: rgba(61,217,141,0.25);
+}
+.aq-check-item--done .aq-check-label { text-decoration: line-through; opacity: 0.5; }
+
+.aq-check-box {
+  width: 1.3rem; height: 1.3rem; flex-shrink: 0;
+  border: 1px solid var(--border-secondary); border-radius: 0.3rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease; color: var(--success-500);
+}
+
+.aq-check-item--done .aq-check-box {
+  background: rgba(61,217,141,0.15); border-color: rgba(61,217,141,0.4);
+}
+
+.aq-check-box svg { width: 0.7rem; height: 0.7rem; }
+
+.aq-check-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+.aq-check-text { display: flex; flex-direction: column; gap: 0.05rem; flex: 1; min-width: 0; }
+
+.aq-check-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.88rem; font-weight: 600;
+  color: var(--text-primary);
+}
+
+.aq-check-day {
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem;
+  color: var(--text-gold);
+}
+
+/* ── INLINE CALENDAR ─────────────────────────────── */
+.aq-cal { width: 100%; }
+
+.aq-cal__nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.aq-cal__nav-btn {
+  width: 2.1rem; height: 2.1rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-tertiary); border: 1px solid var(--border-secondary);
+  border-radius: 0.5rem; cursor: pointer; color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+.aq-cal__nav-btn svg { width: 1rem; height: 1rem; }
+.aq-cal__nav-btn:hover {
+  border-color: var(--text-gold); color: var(--text-gold);
+  background: rgba(230,187,81,0.07);
+}
+
+.aq-cal__nav-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.88rem; font-weight: 700;
+  color: var(--text-primary);
+}
+
+.aq-cal__headers {
+  display: grid; grid-template-columns: repeat(7,1fr);
+  gap: 0.15rem; margin-bottom: 0.4rem;
+}
+
+.aq-cal__hdr {
+  font-family: 'Cairo', sans-serif; font-size: 0.62rem; font-weight: 700;
+  text-align: center; text-transform: uppercase; color: var(--text-tertiary);
+  padding: 0.2rem 0;
+}
+
+.aq-cal__grid {
+  display: grid; grid-template-columns: repeat(7,1fr); gap: 0.2rem;
+}
+
+/* Cell base */
+.aq-cal__cell {
+  aspect-ratio: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 500;
+  border-radius: 0.45rem; border: 1px solid transparent;
+  background: none; color: var(--text-secondary);
+  cursor: pointer; transition: all 0.15s ease;
+  position: relative; padding: 0; line-height: 1;
+}
+.aq-cal__cell:hover:not(.aq-cal__cell--birth):not(.aq-cal__cell--highlight) {
+  background: rgba(230,187,81,0.08); color: var(--text-gold);
+}
+.aq-cal__cell--empty { cursor: default; pointer-events: none; }
+
+/* Today */
+.aq-cal__cell--today {
+  border-color: rgba(230,187,81,0.4); color: var(--text-gold); font-weight: 700;
+}
+
+/* Birth date */
+.aq-cal__cell--birth {
+  background: var(--primary-400); color: var(--text-on-primary);
+  font-weight: 800; box-shadow: 0 0 0.75rem rgba(230,187,81,0.4);
+  border-color: transparent;
+}
+
+/* Highlighted (7th, 14th, 21st) */
+.aq-cal__cell--highlight {
+  background: rgba(61,217,141,0.12); color: var(--accent-green-500);
+  font-weight: 700; border-color: rgba(61,217,141,0.3);
+}
+
+/* Dots beneath cell number */
+.aq-cal__cell-dot {
+  position: absolute; bottom: 0.12rem;
+  width: 0.3rem; height: 0.3rem; border-radius: 50;
+}
+.aq-cal__cell-dot--birth  { background: var(--text-on-primary); border-radius: 50%; }
+.aq-cal__cell-dot--aqiqah { background: var(--accent-green-500); border-radius: 50%; }
+
+/* Legend */
+.aq-cal__legend {
+  display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(230,187,81,0.08);
+}
+
+.aq-cal__legend-item {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem; color: var(--text-tertiary);
+}
+
+.aq-cal__legend-dot {
+  width: 0.7rem; height: 0.7rem; border-radius: 0.2rem; flex-shrink: 0;
+}
+.aq-cal__legend-dot--birth  { background: var(--primary-400); }
+.aq-cal__legend-dot--7th    { background: rgba(61,217,141,0.4); border: 1px solid rgba(61,217,141,0.6); }
+.aq-cal__legend-dot--alt    { background: rgba(61,217,141,0.2); border: 1px solid rgba(61,217,141,0.3); }
+.aq-cal__legend-dot--today  { background: transparent; border: 1px solid var(--text-gold); }
+
+/* ── DATE RESULT CARDS ───────────────────────────── */
+.aq-date-cards { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+
+.aq-date-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 1rem; padding: 1.1rem 1.25rem;
+  transition: all 0.3s ease; position: relative; overflow: hidden;
+  animation: aq-fade-up 0.4s ease both;
+}
+
+.aq-date-card:hover { border-color: rgba(230,187,81,0.3); transform: translateX(0.2rem); }
+
+.aq-date-card--preferred {
+  background: linear-gradient(135deg, rgba(230,187,81,0.08) 0%, rgba(125,87,14,0.1) 100%);
+  border-color: rgba(230,187,81,0.35);
+  box-shadow: 0 0 2rem rgba(230,187,81,0.08);
+}
+
+.aq-date-card--past {
+  opacity: 0.5;
+}
+
+.aq-date-card__preferred-badge {
+  font-family: 'Cairo', sans-serif; font-size: 0.68rem; font-weight: 700;
+  padding: 0.2rem 0.6rem; border-radius: 2rem;
+  background: rgba(230,187,81,0.15); color: var(--text-gold);
+  border: 1px solid rgba(230,187,81,0.3);
+  display: inline-block; margin-bottom: 0.6rem;
+}
+
+.aq-date-card__top {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+}
+
+.aq-date-card__arabic {
+  font-family: 'Scheherazade New', serif; font-size: 0.82rem;
+  color: var(--text-tertiary); display: block;
+}
+
+.aq-date-card__label {
+  font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 800;
+  color: var(--text-primary); margin: 0.15rem 0;
+}
+
+.aq-date-card__gregorian {
+  font-family: 'Tajawal', sans-serif; font-size: 0.82rem;
+  color: var(--text-secondary); display: block;
+}
+
+.aq-date-card__hijri {
+  font-family: 'Scheherazade New', serif; font-size: 0.78rem;
+  color: var(--text-gold); opacity: 0.65; display: block;
+}
+
+.aq-date-card__desc {
+  font-family: 'Tajawal', sans-serif; font-size: 0.78rem;
+  color: var(--text-tertiary); margin-top: 0.5rem; font-style: italic;
+}
+
+.aq-date-card__countdown {
+  text-align: center; flex-shrink: 0;
+}
+
+.aq-date-card__days {
+  font-family: 'Cairo', sans-serif; font-size: 2rem; font-weight: 900;
+  color: var(--text-gold); display: block; line-height: 1;
+}
+
+.aq-date-card__days-label {
+  font-family: 'Tajawal', sans-serif; font-size: 0.68rem;
+  color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+.aq-date-card__past-label {
+  font-family: 'Cairo', sans-serif; font-size: 0.78rem; font-weight: 700;
+  color: var(--text-tertiary);
+}
+
+.aq-date-card__today-label {
+  font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 800;
+  color: var(--success-500);
+  animation: aq-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── BIRTH BANNER ────────────────────────────────── */
+.aq-birth-banner {
+  background: linear-gradient(135deg, rgba(230,187,81,0.07) 0%, rgba(61,217,141,0.07) 100%);
+  border: 1px solid rgba(230,187,81,0.2);
+  border-radius: 1.1rem; padding: 1.25rem;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.aq-birth-banner__left {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+}
+
+.aq-birth-banner__emoji { font-size: 2rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+.aq-birth-banner__name {
+  font-family: 'Amiri', serif; font-size: 1.1rem; font-weight: 700;
+  color: var(--text-gold); display: block; margin-bottom: 0.1rem;
+}
+
+.aq-birth-banner__label {
+  font-family: 'Cairo', sans-serif; font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-tertiary);
+  display: block;
+}
+
+.aq-birth-banner__date {
+  font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700;
+  color: var(--text-primary); display: block; margin-top: 0.15rem;
+}
+
+.aq-birth-banner__hijri {
+  font-family: 'Scheherazade New', serif; font-size: 0.82rem;
+  color: var(--text-gold); opacity: 0.65; display: block;
+}
+
+.aq-birth-banner__dua {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem;
+  text-align: right;
+}
+
+.aq-birth-banner__dua-ar {
+  font-family: 'Scheherazade New', serif; font-size: 1rem;
+  color: var(--text-gold); opacity: 0.7; line-height: 1.5;
+}
+
+.aq-birth-banner__dua-en {
+  font-family: 'Tajawal', sans-serif; font-size: 0.72rem; font-style: italic;
+  color: var(--text-tertiary); max-width: 18rem;
+}
+
+/* ── SUNNAH STRIP ────────────────────────────────── */
+.aq-sunnah-strip {
+  background: var(--bg-secondary);
+  border-top: 1px solid rgba(230,187,81,0.1);
+  padding: 4rem 1.5rem;
+}
+
+.aq-sunnah-strip__inner { max-width: 82rem; margin: 0 auto; }
+
+.aq-sunnah-strip__heading {
+  font-family: 'Amiri', serif; font-size: 2rem; font-weight: 700;
+  color: var(--text-primary); text-align: center; margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.aq-sunnah-strip__heading::after {
+  content: ''; display: block;
+  width: 4rem; height: 2px;
+  background: linear-gradient(90deg, var(--primary-600), var(--primary-700));
+  margin: 0.75rem auto 0;
+  border-radius: 1px;
+}
+
+.aq-sunnah-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
+}
+
+.aq-sunnah-card {
+  background: var(--card-bg); border: 1px solid var(--card-border);
+  border-radius: 1rem; padding: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.aq-sunnah-card:hover {
+  transform: translateY(-0.25rem);
+  border-color: rgba(230,187,81,0.3);
+}
+
+.aq-sunnah-card__icon { font-size: 1.75rem; display: block; margin-bottom: 0.5rem; }
+
+.aq-sunnah-card__ar {
+  font-family: 'Scheherazade New', serif; font-size: 0.9rem;
+  color: var(--text-gold); opacity: 0.65; display: block; margin-bottom: 0.3rem;
+}
+
+.aq-sunnah-card__title {
+  font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 0.5rem;
+}
+
+.aq-sunnah-card__desc {
+  font-family: 'Tajawal', sans-serif; font-size: 0.83rem;
+  color: var(--text-tertiary); line-height: 1.65;
+}
+
+/* ── QURAN BANNER ────────────────────────────────── */
+.aq-quran-banner {
+  background: var(--bg-primary);
+  border-top: 1px solid rgba(230,187,81,0.1);
+  border-bottom: 1px solid rgba(230,187,81,0.1);
+  padding: 2.5rem 1.5rem; text-align: center;
+  display: flex; flex-direction: column; gap: 0.6rem; align-items: center;
+}
+
+.aq-quran-banner__ar {
+  font-family: 'Scheherazade New', serif; font-size: 1.55rem;
+  color: var(--text-gold); opacity: 0.7; line-height: 1.7;
+}
+
+.aq-quran-banner__en {
+  font-family: 'Tajawal', sans-serif; font-size: 0.88rem;
+  font-style: italic; color: var(--text-tertiary); max-width: 48rem;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 64em) {
+  .aq-layout { grid-template-columns: 1fr; }
+  .aq-sunnah-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 48em) {
+  .aq-hero__body { padding: 4.5rem 1.25rem 2.5rem; }
+  .aq-hero__stats { flex-wrap: wrap; gap: 1.25rem; padding: 1rem; }
+  .aq-sunnah-grid { grid-template-columns: 1fr; }
+  .aq-birth-banner { flex-direction: column; }
+  .aq-birth-banner__dua { align-items: flex-start; text-align: left; }
+}
+
+@media (max-width: 30em) {
+  .aq-hero__title { font-size: 2rem; }
+  .aq-gender-toggle { grid-template-columns: 1fr; }
+}

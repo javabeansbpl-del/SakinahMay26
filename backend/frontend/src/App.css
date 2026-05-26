@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Mobile navbar spacer — prevents content hiding behind fixed bar */
+.navbar-spacer {
+  display: none;
+}
+
+@media (max-width: 47.9375em) {
+  .navbar-spacer {
+    display: block;
+    height: 4rem;
+  }
+}
